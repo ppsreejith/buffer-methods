@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 module.exports = (model) => {
-  const _methodBuffer = [];
+  let _methodBuffer = [];
   const _model = _.reduce(
     _.keys(model),
     (acc, key) => {
@@ -21,6 +21,7 @@ module.exports = (model) => {
     resolve: function () {
       _.extendWith(_model, model);
       _.forEach(_methodBuffer, ({ key, args }) => model[key].apply({}, args));
+      _methodBuffer = [];
     }
   }
 };
