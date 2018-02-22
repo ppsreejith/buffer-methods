@@ -18,9 +18,9 @@ module.exports = (model) => {
   );
   return {
     model: _model,
-    resolve: function () {
-      _.extendWith(_model, model);
-      _.forEach(_methodBuffer, ({ key, args }) => model[key].apply({}, args));
+    resolve: function (newModel) {
+      _.extendWith(_model, model, newModel);
+      _.forEach(_methodBuffer, ({ key, args }) => _model[key].apply({}, args));
       _methodBuffer = [];
     }
   }
