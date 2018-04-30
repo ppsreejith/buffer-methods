@@ -1,6 +1,6 @@
 {
   "name": "buffer-methods",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Allows you to delay object method resolution until a resolve function is called",
   "main": "index.js",
   "scripts": {
